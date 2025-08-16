@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Slideshow</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+      overflow: hidden;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 800px;
+      width: 90%;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      background: black;
+      z-index: 1;
+    }
+
+    .slide {
+      display: none;
+      position: relative;
+      text-align: center;
+      animation: fade 1.5s;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide img,
+    .slide video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* keeps full picture visible */
+      background: black;
+      border-radius: 20px;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    .dots {
+      text-align: center;
+      margin: 15px 0;
+      z-index: 1;
+    }
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: rgba(0,0,0,0.3);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .dot.active {
+      background-color: #ff7eb3;
+      transform: scale(1.2);
+    }
+
+    /* Floating love text */
+    .floating-text, .floating-pics {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .floating-text span {
+      position: absolute;
+      font-size: 24px;
+      font-weight: bold;
+      color: rgba(255, 105, 180, 0.7);
+      text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+      animation: floatText 15s linear infinite;
+    }
+    @keyframes floatText {
+      from {transform: translateY(100vh);}
+      to {transform: translateY(-10vh);}
+    }
+
+    /* Floating pics */
+    .floating-pics img {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      opacity: 0.7;
+      animation: floatPic 18s linear infinite;
+    }
+    @keyframes floatPic {
+      from {transform: translateY(100vh) rotate(0deg);}
+      to {transform: translateY(-15vh) rotate(360deg);}
+    }
+
+    /* Stylish Music button */
+    #music-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      background: linear-gradient(45deg, #ff5fa2, #ff9966);
+      color: white;
+      z-index: 10;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.7), 0 0 30px rgba(255, 182, 193, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    #music-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 20, 147, 0.9), 0 0 40px rgba(255, 182, 193, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <img src="SachieNavarro.jpg" alt="Us 1">
+      <div class="caption">I love you Sachie ❤️</div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <img src="SachieNavarro2.jpg" alt="Us 2">
+      <div class="caption">Forever and always 💕</div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <img src="Sachienavarro3.jpg" alt="Us 3">
+      <div class="caption">My best days are with you 🌸</div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <img src="Sachienavarro4.jpg" alt="Us 4">
+      <div class="caption">You complete me 💖</div>
+    </div>
+
+    <!-- Slide 5 (Video) -->
+    <div class="slide">
+      <video muted playsinline>
+        <source src="withmylangga1.mp4" type="video/mp4">
+      </video>
+      <div class="caption">Our moments together 🎥</div>
+    </div>
+  </div>
+
+  <!-- Dots -->
+  <div class="dots">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+  <!-- Floating text -->
+  <div class="floating-text">
+    <span style="left: 10%; animation-delay: 0s;">I Love You</span>
+    <span style="left: 30%; animation-delay: 5s;">I Love You</span>
+    <span style="left: 50%; animation-delay: 10s;">I Love You</span>
+    <span style="left: 70%; animation-delay: 15s;">I Love You</span>
+    <span style="left: 90%; animation-delay: 20s;">I Love You</span>
+  </div>
+
+  <!-- Floating pics (small hearts or mini photos) -->
+  <div class="floating-pics">
+    <img src="Sachienavarro5float.jpg" style="left: 15%; animation-duration: 20s;">
+    <img src="Sachienavarro5float.jpg" style="left: 40%; animation-duration: 25s;">
+    <img src="Sachienavarro5float.jpg" style="left: 65%; animation-duration: 18s;">
+    <img src="Sachienavarro5float.jpg" style="left: 80%; animation-duration: 22s;">
+    <img src="Sachienavarro5float.jpg" style="left: 55%; animation-duration: 30s;">
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="aphrodite.mp3" type="audio/mp3">
+  </audio>
+  <button id="music-btn" onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
+
+  <script>
+    let slideIndex = 0;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+        let vid = slides[i].querySelector("video");
+        if (vid) { vid.pause(); }
+      }
+
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      let currentSlide = slides[slideIndex-1];
+      currentSlide.style.display = "block";  
+      dots[slideIndex-1].className += " active";
+
+      // If it's a video slide
+      let video = currentSlide.querySelector("video");
+      if (video) {
+        video.currentTime = 0;
+        video.play();
+        setTimeout(showSlides, 11000); // 11 seconds
+      } else {
+        setTimeout(showSlides, 4000); // 4 seconds for images
+      }
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>
+
